@@ -1,0 +1,70 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(#ffffff, #f9d6d6);
+    font-family: 'Steph', sans-serif;
+}
+
+@font-face {
+    font-family: "Steph";
+    src: url("fonts/steph-font.ttf");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Steph";
+    src: url("fonts/steph-font-bold.ttf");
+    font-weight: bold;
+}
+
+.container {
+    max-width: 800px;
+    margin: 100px auto;
+}
+
+#togepi-gif {
+    width: 500px;
+    height: 400px;
+    object-fit: cover;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+button {
+    border-radius: 5px;
+    width: 70px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 10px 20px;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+#yes-btn {
+    color:white;
+    background-color: #7dbe85;
+}
+
+#no-btn {
+    color:white;
+    background-color: #db4e4e;
+}
