@@ -11,7 +11,7 @@ body {
     justify-content: flex-start;
     text-align: center;
     margin: 0;
-    padding: 100px 0;
+    padding: 75px 0;
     background: linear-gradient(#ffffff, #f9d6d6);
     font-family: 'Steph', sans-serif;
 }
@@ -29,7 +29,7 @@ body {
 }
 
 .container {
-    max-width: 800px;
+    max-width: 100%;
     margin: 20px auto 0 auto;
 }
 
@@ -47,7 +47,7 @@ h1 {
 .btn-container {
     display: flex;
     justify-content: center;
-    gap: 50px;
+    gap: 100px;
 }
 
 button {
@@ -56,11 +56,11 @@ button {
     max-width: 500px;
     border: none;
     cursor: pointer;
-    padding: 10px 30px;
+    padding: 10px 15px;
     white-space: nowrap;
     font-size: 1.3rem;
-    font-weight: 500;
-    transition: transform 0.3s ease,
+    font-weight: 600;
+    transition: transform 0.1s ease,
 }
 
 button:hover {
@@ -76,4 +76,44 @@ button:hover {
 #no-btn {
     color:white;
     background-color: #db4e4e;
+}
+
+@media (max-width: 1150px) {
+    body {
+        padding-top: 70px;
+    }
+    .container {
+        max-width: 100%;
+        margin: 0;
+    }
+    
+    #togepi-gif {
+        width: 380px;
+        height: 304px;
+        object-fit: cover;
+    }
+    
+    h1 {
+        font-size: 2rem;
+        margin: 50px auto;
+    }
+    
+    .btn-container {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    button {
+        border-radius: 8px;
+        min-width: 70px;
+        max-width: 80px;
+        border: none;
+        cursor: pointer;
+        padding: 10px 12px;
+        white-space: nowrap;
+        font-size: 0.7rem;
+        font-weight: 300;
+        transition: transform 0.1s ease,
+    }
 }
