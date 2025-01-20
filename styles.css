@@ -1,15 +1,16 @@
 :root {
     --gap-scale-factor: 250;
-}
-
-html, body {
+  }
+  
+  html,
+  body {
     height: 100%;
     margin: 0;
     padding: 0;
     overflow: hidden;
-}
-
-body {
+  }
+  
+  body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -17,44 +18,44 @@ body {
     margin: 0;
     padding: 75px 0;
     background: linear-gradient(#ffffff, #f9d6d6);
-    font-family: 'Steph', sans-serif;
-}
-
-@font-face {
+    font-family: "Steph", sans-serif;
+  }
+  
+  @font-face {
     font-family: "Steph";
     src: url("assets/fonts/steph-font.ttf");
     font-weight: normal;
-}
-
-@font-face {
+  }
+  
+  @font-face {
     font-family: "Steph";
     src: url("assets/fonts/steph-font-bold.ttf");
     font-weight: bold;
-}
-
-.container {
+  }
+  
+  .container {
     max-width: 100%;
     margin: 20px auto 0 auto;
-}
-
-#togepi-gif {
+  }
+  
+  #togepi-gif {
     width: 500px;
     height: 400px;
     object-fit: cover;
-}
-
-h1 {
+  }
+  
+  h1 {
     font-size: 3rem;
     margin: 50px auto;
-}
-
-.btn-container {
+  }
+  
+  .btn-container {
     display: flex;
     justify-content: center;
     gap: 75px;
-}
-
-button {
+  }
+  
+  button {
     border-radius: 8px;
     min-width: 100px;
     max-width: 550px;
@@ -64,107 +65,107 @@ button {
     white-space: nowrap;
     font-size: 1.3rem;
     font-weight: 600;
-    transition: transform 0.1s ease,
-}
-
-button:hover {
+    transition: transform 0.1s ease;
+  }
+  
+  button:hover {
     scale: 1.05;
-}
-
-#yes-btn {
+  }
+  
+  #yes-btn {
     transform-origin: center top;
-    color:white;
+    color: white;
     background-color: #57915e;
-}
-
-#no-btn {
-    color:white;
+  }
+  
+  #no-btn {
+    color: white;
     background-color: #db4e4e;
-}
-
-@media (max-width: 1150px) {
+  }
+  
+  @media (max-width: 1150px) {
     :root {
-        --gap-scale-factor: 200;
+      --gap-scale-factor: 200;
     }
-
+  
     body {
-        padding-top: 70px;
+      padding-top: 70px;
     }
     .container {
-        max-width: 100%;
-        margin: 0;
+      max-width: 100%;
+      margin: 0;
     }
-    
+  
     #togepi-gif {
-        width: 380px;
-        height: 304px;
-        object-fit: cover;
+      width: 380px;
+      height: 304px;
+      object-fit: cover;
     }
-    
+  
     h1 {
-        font-size: 2rem;
-        margin: 50px auto;
+      font-size: 2rem;
+      margin: 50px auto;
     }
-    
+  
     .btn-container {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
     }
-    
+  
     button {
-        border-radius: 8px;
-        min-width: 100px;
-        max-width: 400px;
-        border: none;
-        cursor: pointer;
-        padding: 10px 12px;
-        white-space: nowrap;
-        font-size: 1rem;
-        font-weight: 600;
-        transition: transform 0.1s ease,
+      border-radius: 8px;
+      min-width: 100px;
+      max-width: 400px;
+      border: none;
+      cursor: pointer;
+      padding: 10px 12px;
+      white-space: nowrap;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: transform 0.1s ease;
     }
-}
-
-@media (max-width: 600px) {
+  }
+  
+  @media (max-width: 600px) {
     :root {
-        --gap-scale-factor: 50;
+      --gap-scale-factor: 50;
     }
     body {
-        padding-top: 100px;
+      padding-top: 100px;
     }
     .container {
-        max-width: 100%;
-        margin: 0;
+      max-width: 100%;
+      margin: 0;
     }
-    
+  
     #togepi-gif {
-        width: 300px;
-        height: 240px;
-        object-fit: cover;
+      width: 300px;
+      height: 240px;
+      object-fit: cover;
     }
-    
+  
     h1 {
-        font-size: 1.5rem;
-        margin: 32px auto;
+      font-size: 1.4rem;
+      margin: 32px auto;
     }
-    
+  
     .btn-container {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
     }
-    
+  
     button {
-        border-radius: 8px;
-        min-width: 60px;
-        max-width: 175px;
-        border: none;
-        cursor: pointer;
-        padding: 10px 12px;
-        white-space: nowrap;
-        font-size: 0.8rem;
-        font-weight: 600;
-        transition: transform 0.1s ease,
+      border-radius: 8px;
+      min-width: 60px;
+      max-width: 175px;
+      border: none;
+      cursor: pointer;
+      padding: 10px 12px;
+      white-space: nowrap;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: transform 0.1s ease;
     }
-}
+  }  
