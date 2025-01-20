@@ -2,15 +2,16 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 body {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     text-align: center;
     margin: 0;
-    padding: 0;
+    padding: 100px 0;
     background: linear-gradient(#ffffff, #f9d6d6);
     font-family: 'Steph', sans-serif;
 }
@@ -29,7 +30,7 @@ body {
 
 .container {
     max-width: 800px;
-    margin: 100px auto;
+    margin: 100px auto 0 auto;
 }
 
 #togepi-gif {
@@ -39,7 +40,8 @@ body {
 }
 
 h1 {
-    font-size: 2rem;
+    font-size: 3rem;
+    margin: 50px auto;
 }
 
 .btn-container {
@@ -49,20 +51,24 @@ h1 {
 }
 
 button {
-    border-radius: 5px;
-    min-width: 70px;
+    border-radius: 8px;
+    min-width: 100px;
     max-width: 500px;
     border: none;
     cursor: pointer;
     padding: 10px 30px;
     white-space: nowrap;
+    font-size: 1.3rem;
+    font-weight: 500;
+    transition: transform 0.3s ease,
 }
 
 button:hover {
-    opacity: 0.8;
+    scale: 1.05;
 }
 
 #yes-btn {
+    transform-origin: center top;
     color:white;
     background-color: #57915e;
 }
