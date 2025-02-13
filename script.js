@@ -1,61 +1,102 @@
-let noClicks = 1;
-const maxNoClicks = 4;
-const minNoScale = 0.65;
-let noScale = 1;
-let yesScale = 1; // This now tracks the scaling factor directly
+// Constants
+const noClicks = {
+    count: 1,
+    max: 4,
+    scale: {
+        current: 1,
+        min: 0.65
+    }
+};
+
+const yesScale = {
+    current: 1,
+    increment: 0.5
+};
+
+// DOM Elements
 const gifElement = document.getElementById("togepi-gif");
 const noButton = document.getElementById("no-btn");
 const yesButton = document.getElementById("yes-btn");
 const buttonContainer = document.querySelector(".btn-container");
-const yesButtonStyle = window.getComputedStyle(yesButton);
-const maxYesWidth = parseFloat(yesButtonStyle.maxWidth);
+const message = document.getElementById("message");
 
-// array of gifs - in order
-const gifs = ["assets/images/togepi-happy.gif", "assets/images/togepi-sad-1.gif", "assets/images/togepi-sad-2.gif", "assets/images/togepi-crying.gif"];
-// array of messages
-const buttonMessages = ["Are you sure??", "Pookie please", "Pookie PLEASE", "You can't do this to me!"];
+// Content Arrays
+const gifs = [
+    "assets/images/togepi-happy.gif",
+    "assets/images/togepi-sad-1.gif",
+    "assets/images/togepi-sad-2.gif",
+    "assets/images/togepi-crying.gif"
+];
 
-// no button clicked
+const buttonMessages = [
+    "Are you sure? 🥺",
+    "Pookie please! 💝",
+    "Don't do this! 💔",
+    "Last chance! 🙏"
+];
+
+const headerMessages = [
+    "Will you be my Valentine?",
+    "Please reconsider!",
+    "I'll be so sad...",
+    "Don't break my heart!"
+];
+
+// Create floating hearts
+function createHeart() {
+    const heart = document.createElement('div');
+    heart.innerHTML = '♥';
+    heart.style.position = 'fixed';
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.top = '100vh';
+    heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+    heart.style.color = `rgba(255, ${Math.random() * 50 + 150}, ${Math.random() * 50 + 150}, ${Math.random() * 0.5 + 0.5})`;
+    heart.style.animation = `heartFloat ${Math.random() * 2 + 3}s linear`;
+    
+    document.querySelector('.hearts-bg').appendChild(heart);
+    
+    setTimeout(() => heart.remove(), 5000);
+}
+
+setInterval(createHeart, 300);
+
+// No button click handler
 noButton.addEventListener("click", () => {
-    if (noClicks < maxNoClicks) {
-        // change image
-        gifElement.src = gifs[noClicks];
+    if (noClicks.count < noClicks.max) {
+        // Update content
+        gifElement.src = gifs[noClicks.count];
+        noButton.textContent = buttonMessages[noClicks.count % noClicks.max];
+        message.textContent = headerMessages[noClicks.count % noClicks.max];
+
+        // Shake effect for the gif
+        gifElement.style.animation = 'none';
+        gifElement.offsetHeight; // Trigger reflow
+        gifElement.style.animation = 'shake 0.5s ease';
+
+        // Adjust button sizes
+        if (noClicks.scale.current > noClicks.scale.min) {
+            noClicks.scale.current -= 0.1;
+            noButton.style.transform = `scale(${noClicks.scale.current})`;
+        }
+
+        // Make "Yes" button bigger
+        const yesButtonStyle = window.getComputedStyle(yesButton);
+        const maxYesWidth = parseFloat(yesButtonStyle.maxWidth);
+        const baseWidth = parseFloat(yesButtonStyle.width);
+        const scaledWidth = baseWidth * yesScale.current;
+
+        if (scaledWidth < maxYesWidth) {
+            yesScale.current += yesScale.increment;
+            yesButton.style.transform = `scale(${yesScale.current})`;
+
+            // Adjust gap
+            const rootStyles = getComputedStyle(document.documentElement);
+            const gapScaleFactor = parseFloat(rootStyles.getPropertyValue("--gap-scale-factor")) || 250;
+            const currentGap = parseFloat(buttonContainer.style.gap) || 20;
+            const newGap = Math.sqrt(currentGap * gapScaleFactor);
+            buttonContainer.style.gap = `${newGap}px`;
+        }
     }
 
-    // change no button text
-    noButton.textContent = buttonMessages[noClicks % maxNoClicks];
-
-    // Adjust button width to fit text
-    noButton.style.width = 'auto';
-    noButton.style.width = `${noButton.scrollWidth}px`;
-
-    // decrease the size of the no button
-    if (noScale > minNoScale) {
-        noScale -= 0.1;
-        noButton.style.transform = `scale(${noScale})`;
-    }
-
-    // Calculate the scaled width of the yesButton
-    const baseWidth = parseFloat(yesButtonStyle.width);
-    const scaledWidth = baseWidth * yesScale; // Reflects the actual visual size of the button
-
-    console.log(`Scaled Width: ${scaledWidth}, Max Width: ${maxYesWidth}`);
-
-    // Check if the scaled width is less than the max width
-    if (scaledWidth < maxYesWidth) {
-        yesScale += 0.5; // Increment scale by a smaller step
-        yesButton.style.transform = `scale(${yesScale})`;
-
-        // Get the current gap scale factor from CSS
-        const rootStyles = getComputedStyle(document.documentElement);
-        const gapScaleFactor = parseFloat(rootStyles.getPropertyValue("--gap-scale-factor")) || 250;
-
-        // Adjust the gap dynamically
-        const currentGap = parseFloat(buttonContainer.style.gap) || 20;
-        const newGap = Math.sqrt(currentGap * gapScaleFactor); // Scale based on the factor
-        buttonContainer.style.gap = `${newGap}px`;
-    }
-
-    // increment the number of clicks
-    noClicks++;
+    noClicks.count++;
 });

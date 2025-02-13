@@ -3,23 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>will you be my valentine?</title>
+    <title>Will you be my Valentine?</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Background hearts container -->
+    <div class="hearts-bg" id="hearts-container"></div>
+    
     <div class="container">
-        <!-- Gif -->
-        <img src="assets/images/togepi-love.gif" id="togepi-gif" alt="a cute picture of togepi"/>
-        <!-- Question -->
-        <h1 id="message">
-        Will you be my Valentine? (˶ᵔ ᵕ ᵔ˶)
-        </h1>
-    </div>
-        <!-- Buttons -->
-        <div class="btn-container">
-            <button id="yes-btn"  onclick="window.location.href='yay.html'">Yes</button>
-            <button id="no-btn">No</button>
+        <!-- Main content wrapper with glass effect -->
+        <div class="content-wrapper">
+            <!-- Gif with hover effect -->
+            <div class="gif-container">
+                <img src="assets/images/togepi-love.gif" id="togepi-gif" alt="a cute picture of togepi"/>
+            </div>
+            
+            <!-- Question with animated text -->
+            <h1 id="message" class="animate-text">
+                Will you be my Valentine? <span class="cute-emoji">(˶ᵔ ᵕ ᵔ˶)</span>
+            </h1>
         </div>
+
+        <!-- Buttons with improved layout -->
+        <div class="btn-container">
+            <button id="yes-btn" class="btn-3d" onclick="window.location.href='yay.html'">Yes</button>
+            <button id="no-btn" class="btn-3d">No</button>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
